@@ -1,0 +1,1945 @@
+/* INDEX open/close line 3*/
+/* _________________________________ */
+/*
+_________________________________
+
+Font
+    Font size: 16px;
+    Overpass: weight 300, 600
+    Ubuntu: weight 400, 500, 700
+
+    font-family: 'Overpass', sans-serif;
+        https://fonts.google.com/specimen/Overpass
+    font-family: 'Ubuntu', sans-serif;
+        https://fonts.google.com/specimen/Ubuntu
+
+_________________________________
+_________________________________
+
+Layout
+    Mobile: 375px
+    Desktop: 1440px
+_________________________________
+_________________________________
+
+Colors
+    Primary colors
+        Light red (CTA text): hsl(356, 100%, 66%)
+        Very light red (CTA hover background): hsl(355, 100%, 74%)
+        Very dark blue (headings): hsl(208, 49%, 24%)
+
+    Neutral colors
+        White (text): hsl(0, 0%, 100%)
+        Grayish blue (footer text): hsl(240, 2%, 79%)
+        Very dark grayish blue (body copy): hsl(207, 13%, 34%)
+        Very dark black blue (footer background): hsl(240, 10%, 16%)
+
+    Gradient
+        Background gradient - Intro/CTA mobile nav:
+            Very light red: hsl(13, 100%, 72%)
+            Light red: hsl(353, 100%, 62%)
+
+        Background gradient - body:
+            Very dark gray blue: hsl(237, 17%, 21%)
+            Very dark desaturated blue: hsl(237, 23%, 32%)
+_________________________________
+*/
+
+/* _________________________________ */
+
+/* TODO:    LIST OF THINGS TO DO */
+/* TODO:    Optional: Adjust margins and paddings for extra small view sizes. */
+/* TODO:*/
+/* TODO:*/
+
+/*  -codetitle: HTML Body :focus :root
+    -codedescription: Foundations for the styles to come.
+    -sectionstart: HTML Body start. */
+
+:root{
+    --background-nav-scrolled: linear-gradient(135deg, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+
+    --font-overpass: 'Overpass', sans-serif;
+    --font-ubuntu: 'Ubuntu', sans-serif;
+}
+
+:focus{
+    outline: 2px dashed hsl(208, 49%, 24%);
+    transition: all 150ms ease-in-out;
+    transform: scale(1.05);
+}
+
+html, body, ul, *{
+    font-size: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-ubuntu);
+    font-weight: 500;
+    color: white;
+    font-size: 1rem;
+}
+
+body{
+    background: #FAFAFA;
+}
+
+p, h1{
+    cursor: default;
+}
+
+ul a h1, li a{
+    cursor: pointer;
+}
+
+/* -sectionend: HTML Body :focus :root end. */
+
+/*  -codetitle: Navigation Bar MOBILE
+    -codedescription: Contain styles only for the navigation bar itself and the hamburguer menu icon.
+    -sectionstart: Navigation Bar start. */
+
+nav{
+    z-index: 30;
+
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    top: 0;
+    width: 100%;
+
+    padding-left: 160px;
+    padding-right: 160px;
+
+    flex: 1 1;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(135deg, rgba(0,0,0,0), rgba(0,0,0,0), hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+    background-size: 300% 300%;
+
+    transition: all 300ms ease-in-out;
+}
+
+.nav-flex-left{
+    display: flex;
+    justify-content: flex-start;
+    flex: 1 1;
+}
+.nav-flex-right{
+    display: flex;
+    flex: 1 1;
+    justify-content: flex-end;
+}
+
+.product-flex{
+    display: none;
+    visibility: hidden;
+}
+
+.company-flex{
+    display: none;
+    visibility: hidden;
+}
+
+.connect-flex{
+    display: none;
+    visibility: hidden;
+}
+
+.login-flex{
+    display: none;
+    visibility: hidden;
+}
+
+.product-nav-desktop{
+    display: none;
+    visibility: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+.company-nav-desktop{
+    display: none;
+    visibility: hidden;
+}
+
+.connect-nav-desktop{
+    display: none;
+    visibility: hidden;
+}
+
+.login-nav-desktop{
+    display: none;
+    visibility: hidden;
+}
+
+#signup-nav-desktop{
+    display: none;
+    visibility: hidden;
+}
+
+#signup-nav-desktop a{
+    display: none;
+    visibility: hidden;
+}
+
+.menu-hamburger span{
+    z-index: 2;
+    display: block;
+    width: 32px;
+    height: 3px;
+
+    background-color: white;
+
+    transition: all 300ms ease-in-out;
+    transform-origin: 3px 1px;
+}
+
+.menu-hamburger span:not(:last-child){
+    z-index: 2;
+    margin-bottom: 6px;
+}
+
+#menu-hamburger-touched-child1{
+    transform: rotateZ(45deg);
+}
+
+#menu-hamburger-touched-child2{
+    opacity: 0;
+}
+
+#menu-hamburger-touched-child3{
+    transform: rotateZ(-45deg);
+}
+
+nav li:nth-child(6) a{
+    color: hsl(356, 100%, 66%);
+}
+
+nav .nav-flex-right button{
+    display: inline-block;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    border: none;
+    padding: 0;
+
+    background-color: transparent;
+}
+
+nav .nav-flex-left a {
+    display: inline-block;
+}
+
+nav .nav-flex-left a img{
+    display: block;
+}
+.nav-flex-left{
+    display:flex;
+    align-items: center;
+
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+}
+
+#menudisappear{
+    animation: fade-out 500ms ease-in-out forwards;
+}
+
+#menuappear{
+    display: block;
+    animation: fade-in 500ms ease-in-out forwards;
+}
+
+/*  -sectionend: Navigation bar end. */
+
+/*  -codetitle: Submenu Desktop
+    -codedescription: Styles for everything in the "Submenus", displayed when the user hovers the navigation menus on desktop sizes.
+    -sectionstart: Submenu dskt start. */
+
+
+.desktop-submenu{
+    display: none;
+    visibility: hidden;
+
+    position: absolute;
+    z-index: 99;
+
+    top: 23px;
+
+    width: 0em;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 4em;
+
+    width: 11.125em;
+
+    margin-top: 20px;
+
+    background:rgb(255, 255, 255);
+    border-radius: 5px;
+
+    transition: all 300 ease-in-out;
+}
+
+.product-dskt{
+    margin-left: 42px;
+}
+
+.company-dskt{
+    margin-left: 16px;
+}
+
+.connect-dskt{
+    margin-left: 19px;
+}
+
+.desktop-submenu a{
+    transform: scaleY(95%);
+    color: black;
+}
+
+.submenu-bg-product{
+    display: none;
+    visibility: hidden;
+
+    z-index:99;
+
+    position: absolute;
+    opacity: 1;
+
+    width: 176px;
+    height: 173px;
+}
+
+.submenu-bg-company{
+    display: none;
+    visibility: hidden;
+
+    z-index:99;
+
+    position: absolute;
+    opacity: 1;
+
+    width: 176px;
+    height: 173px;
+}
+
+.submenu-bg-connect{
+    display: none;
+    visibility: hidden;
+
+    z-index:99;
+
+    position: absolute;
+    opacity: 1;
+
+    width: 176px;
+    height: 173px;
+}
+
+#mouse-out-submenu-bg-appear{
+    display:block;
+    visibility: visible;
+}
+
+
+/*  -sectionend: Submenu dskt end. */
+
+/*  -codetitle: Mobile Menu MOBILE
+    -codedescription: Styles for everything in the "Mobile Menu", displayed when the "Hamburguer Menu Icon" is "Touched", are located in this section.
+    -sectionstart: Mobile Menu start. */
+
+.menu-background{
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 49;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+}
+
+.menu-mobile-div{
+    position: fixed;
+    display: none;
+    visibility: hidden;
+
+    z-index: 52;
+    top: 125px;
+
+    /* width: 281.25px; */
+    width: 90vw;
+    max-width: 337.5px;
+
+    left: 50vw;
+    transform: translateX(-50%);
+    text-align: center;
+
+    background: white;
+    border-radius: 5px;
+
+    box-shadow: 0px 12px 15px 4px rgba(0,0,0,0.28);
+    -webkit-box-shadow: 0px 12px 15px 4px rgba(0,0,0,0.28);
+
+    transition: all 300ms ease-in-out;
+}
+
+.menu-mobile-div li{
+    z-index: 51;
+    display: inline-block;
+    text-align: center;
+
+    width: 100%;
+
+    font-family: var(--font-overpass);
+    font-weight: 600;
+
+    padding: 20px;
+    transition: all 300ms ease-in-out;
+}
+
+#on-submenu-expansion{
+    padding-bottom: 0px;
+    margin-bottom: 28px;
+}
+
+.menu-mobile-div li a{
+    color: hsl(208, 49%, 24%);
+}
+
+.menu-mobile li{
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.125rem;
+}
+
+.menu-mobile > li > a{
+    font-size: 1.125rem;
+}
+
+.menu-mobile li:nth-child(3){
+    padding-bottom: 36px;
+}
+
+.menu-mobile li ul:not(:last-child){
+    padding-bottom: 26px;
+}
+
+.menu-mobile li ul ul:first-child{
+    margin-top: 26px;
+}
+
+.menu-mobile li ul ul:last-child{
+    margin-bottom: 26px;
+}
+
+.menu-mobile li:first-child{
+    margin-top: 16px;
+}
+
+.menu-mobile li:last-child{
+    padding-top: 9px;
+    padding-bottom: 24px;
+}
+
+.active-opacity{
+    opacity: 0.8;
+}
+
+.arrow-icon{
+    display: inline-block;
+    position: relative;
+
+    left: 8px;
+    bottom: 2px;
+
+    width: 10px;
+    height: 7px;
+
+    background-image: url(img/icon-arrow-dark.svg);
+}
+
+#arrow-icon-reversed{
+    transform: scaleY(-100%);
+}
+
+.submenu{
+    text-align: center;
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+}
+
+#submenu-expand{
+    display: block;
+    max-height: 200px;
+    margin-top: 26px;
+}
+
+#submenu-expand > ul > a{
+    opacity: 0.7;
+}
+
+.submenu ul{
+    padding:0;
+}
+
+.submenu a{
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    opacity: 0.7;
+}
+
+#login-mobile{
+    width: 85%;
+    border-top: 1px solid hsl(240, 2%, 79%);
+    padding-top: 36px;
+}
+
+#signup-mobile a{     /*Sign Up Button*/
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 2.88em;
+
+    width: 8.5em;
+    min-width: 8.5em;
+    height: 3em;
+    border-radius: 1.5625em;
+    color: white;
+    background: linear-gradient(90deg, hsl(355, 100%, 74%), hsl(356, 100%, 66%));
+}
+
+#signup-mobile{
+    padding-bottom: 36px;
+}
+
+.open-menu-container{
+
+    display: block;
+    position: absolute;
+    visibility: visible;
+    text-align: center;
+    opacity: 1;
+}
+
+/*  -sectionend: Mobile Menu end. */
+
+/*  -codetitle: Hero MOBILE
+    -codedescription: Styles for everything in the page Hero is located in this section.
+    -sectionstart: Hero start. */
+
+header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    background: linear-gradient(135deg, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+
+    justify-content: space-around;
+    text-align: center;
+    border-bottom-left-radius: 100px;
+    overflow: hidden;
+}
+
+.nav-trigger{
+    position: absolute;
+    display:block;
+    z-index: 9999;
+    top: 0;
+
+    width: 10px;
+    height: 10px;
+}
+
+.bg-circles{
+    z-index: 1;
+    display: block;
+    position: absolute;
+    top: -243px;
+    left: -342px;
+    width: 1320px;
+}
+
+header h1{
+    z-index: 2;
+    font-size: 4rem;
+    font-family: var(--font-overpass);
+    font-weight: 600;
+    transform: scaleY(105%);
+    margin-top: 204px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+header p{
+    z-index: 2;
+    font-family: var(--font-overpass);
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 0.8px;
+    color: white;
+    margin: 1.4375rem 3.1875rem 0rem 3.1875rem;
+}
+
+.hero-buttons{
+    z-index: 2;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin: 3.3125em 2.625em 9.75em 2.625em;
+
+    list-style: none;
+}
+
+.startforfree-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 8.5625em;
+    min-width: 8.5625em;
+    height: 3em;
+    margin-right: 1em;
+
+    color: hsl(356, 100%, 66%);
+    background: white;
+    border-radius: 3.125em;
+
+    transition: all 300ms ease-in-out;
+}
+
+.startforfree-button:hover, .startforfree-button:focus{
+    color: white;
+    background: hsl(355, 100%, 74%);
+}
+
+.learnmore-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 8.5625em;
+    min-width: 8.5625em;
+    height: 3em;
+    border-radius: 3.125em;
+
+    color: white;
+    background: none;
+    border: 1px solid white;
+
+    font-weight: 600;
+    transition: all 300ms ease-in-out;
+}
+
+.learnmore-button:hover, .learnmore-button:focus{
+    background: white;
+    color: hsl(355, 100%, 74%);
+}
+
+/*  -sectionend: Hero end. */
+
+/*  -codetitle: Section Designed for the Future MOBILE
+    -codedescription: Styles for the first section after the hero.
+    -sectionstart: Section Designed start. */
+
+.designed-future{
+    display: flex;
+
+    margin-left: 5.2em;
+    margin-right: 5.2em;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.designed-future h1{
+    text-align: center;
+    font-size: 1.625rem;
+    font-weight: 600;
+    font-family: var(--font-overpass);
+    color: hsl(208, 49%, 24%);
+    transform: scaleY(105%);
+
+}
+
+.designedh1{
+    margin-top: 107px;
+}
+
+.designed-future-ilustr{
+    margin-top: 48px;
+    flex: 2;
+}
+
+.introducingh1{
+    margin-top: 57px;
+}
+
+.designed-future p{
+    margin-top: 30px;
+    text-align: center;
+    font-family: var(--font-overpass);
+    opacity: 0.7 ;
+    font-weight: 300;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    color: hsl(240, 10%, 16%);
+}
+
+.robusth1{
+    margin-top: 57px;
+}
+
+.designed-future > :last-child{
+    margin-bottom: 160px;
+}
+
+/*  -sectionend: Section Designed end. */
+
+/*  -codetitle: Section State of the Art MOBILE
+    -codedescription: Styles for the State of the art section. This section begins just after the Designed for the future section.
+    -sectionstart: Section State start. */
+
+#disappear{
+    display: none;
+    visibility: hidden;
+}
+
+.state-art{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+
+    background: linear-gradient(hsl(240, 10%, 16%), hsl(237, 23%, 32%));
+    overflow: hidden;
+}
+
+.state-art-bg{
+    z-index: 1;
+    position: absolute;
+
+    top: -233px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 605px;
+}
+
+
+.section-header-container{
+    z-index: 3;
+    display:flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+}
+
+.phones-art{
+    position: absolute;
+    z-index: 5;
+    display: block;
+    width: 375px;
+}
+
+.stateh1{
+    z-index: 2;
+    flex: 1 1 100%;
+
+    margin-top: 230px;
+
+    text-align: center;
+    font-size: 2.3rem;
+    width: 100%;
+
+    font-family: var(--font-overpass);
+    color: white;
+}
+
+.state-art > p{
+    z-index: 2;
+    flex: 1 1 100%;
+
+
+    font-family: var(--font-overpass);
+    font-weight: 300;
+
+    width: 100%;
+
+    line-height: 30px;
+    letter-spacing: 0.2px;
+
+    color: white;
+}
+
+/*  -sectionend: Section State of the Art end. */
+
+/*  -codetitle: Section Free Open Simple MOBILE
+    -codedescription: Styles for the Free Open Simple section. This section comes after the State of the Art section.
+    -sectionstart: Section Free start. */
+
+.free-open-simple{
+    display:flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+
+    overflow: hidden;
+    text-align: center;
+}
+
+.laptop-img-mobile{
+    width: 500px;
+    margin-top: 78px;
+}
+
+.free-open-simple h1{
+    width: 100%;
+    margin-top: 3.5625em;
+    font-size: 1.6875rem;
+    font-family: var(--font-overpass);
+    color: hsl(208, 49%, 24%);
+}
+
+.free-open-simple p{
+    display: inline-block;
+    font-family: var(--font-overpass);
+    font-weight: 300;
+    width: 80%;
+    opacity: 0.7;
+    line-height: 1.875em;
+    letter-spacing: 0.2px;
+    margin-top: 1.875em;
+    color: hsl(240, 10%, 16%);
+}
+
+.free-open-simple > :last-child{
+    margin-bottom: 6.25em;
+}
+
+/*  -sectionend: Section Free end. */
+
+/*  -codetitle: Footer MOBILE
+    -codedescription: Styles for the page footer.
+    -sectionstart: Footer start. */
+
+footer{
+    display: flex;
+    justify-content: center;
+
+    background-color: hsl(240, 10%, 16%);
+
+    border-top-right-radius: 100px;
+    /* margin-top: 6.25rem; */
+}
+
+footer h1, footer p{
+    transform: scaleY(95%);
+}
+
+footer li{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: start;
+    align-items: center;
+}
+
+footer > li > a:first-child{
+    margin-top: 4.6875em;
+}
+
+.connect-footer > li > :last-child{
+    margin-bottom: 4.6875em;
+}
+
+footer li > ul{
+    margin-top: 5em;
+    line-height: 1em;
+}
+
+footer li ul h1 {
+    font-family: var(--font-ubuntu);
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+
+    transform: scaleY(105%);
+}
+
+footer li ul a:first-child{
+    margin-bottom: 2.375em;
+}
+
+footer li ul a{
+    font-family: var(--font-overpass);
+    font-size: 1rem;
+    font-weight: 500;
+
+    line-height: 1em;
+    opacity: 0.8;
+
+    border-bottom: 2px solid transparent;
+    transition: all 300ms ease-in-out;
+}
+
+footer li ul a:hover{
+    border-bottom: 2px solid hsla(0, 0%, 100%, 0.7);
+}
+
+
+footer li > ul > li{
+    align-items: center;
+}
+
+footer li ul li a:not(:last-child){
+    margin-bottom: 1.125em;
+}
+
+.product-footer{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.product-footer li {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.product-footer li a{
+    flex: 1 1;
+    justify-self: start;
+}
+
+.company-footer{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.connect-footer{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+/*  -sectionend: Footer end. */
+
+/*  -codetitle: Animations
+    -codedescription: Styles for the animations used in... Note: Need to rewrite this description later.
+    -sectionstart: Animations start. */
+
+@keyframes fade-in{
+    from{
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+    1%{
+        display: block;
+        visibility: visible;
+    }
+    to{
+        display: block;
+        visibility: visible;
+        opacity:1;
+    }
+}
+
+@keyframes fade-out{
+    from{
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+    99%{
+        opacity: 0;
+    }
+    to{
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+@keyframes nav-bg-animation-in{
+    from{
+        max-height: 10.625em;
+        background-position: 0% 0%;
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+    to{
+        max-height: inherit;
+        background-position: 100% 100%;
+        -webkit-box-shadow: 0px 0px 9px 5px rgba(0,0,0,0.10);
+        box-shadow: 0px 0px 9px 5px rgba(0,0,0,0.10);
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;    }
+}
+
+.nav-bg-animation-in{
+    animation: nav-bg-animation-in 300ms ease forwards;
+}
+
+@keyframes nav-bg-animation-out{
+    from{
+        max-height: inherit;
+        background-position: 100% 100%;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    to{
+        max-height: 10.625em;
+        background-position: 0% 0%;
+
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+}
+
+.nav-bg-animation-out{
+    animation: nav-bg-animation-out 300ms ease forwards;
+}
+
+@keyframes nav-flex-animation-in {
+    from{
+        max-height: inherit;
+    }
+    to{
+        max-height: 4em;
+    }
+}
+
+.shrink-nav-flex-in{
+    animation: nav-flex-animation-in 300ms ease forwards;
+}
+
+@keyframes nav-flex-animation-out {
+    from{
+        max-height: 4em;
+    }
+    to{
+        max-height: 10.625em;
+    }
+}
+
+.shrink-nav-flex-out{
+    animation: nav-flex-animation-out 300ms ease forwards;
+}
+
+
+/* -sectionend: Animations end. */
+
+/*  -codetitle: Navigation Bar DESKTOP
+    -codedescription: Styles for morphing the navigation bar into the desktop style.
+    -sectionstart: Navigation Bar DESKTOP start. */
+
+@media screen and (min-width: 1150px){
+
+nav{
+    display: flex;
+    padding: 48px 160px;
+
+
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav-flex-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+    transition: all 300ms ease-in-out;
+}
+
+.nav-flex-left > :nth-child(1){
+    margin-left: 0em;
+    margin-right: 4em;
+}
+
+.nav-flex-left > :nth-child(2), .nav-flex-left > :nth-child(3){
+    margin-left: 0em;
+    margin-right: 2.375em;
+}
+
+.nav-flex-right > :nth-child(2){
+    margin-right: 0em;
+}
+
+nav .nav-flex-left li:nth-child(2), nav .nav-flex-left li:nth-child(3), nav .nav-flex-left li:nth-child(4){
+    transform: scaleY(105%);
+    font-weight: 500;
+    opacity: 0.6;
+    transition: all 300ms ease-in-out;
+    /* border: 1px solid magenta; */
+}
+
+.nav-flex-right{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+
+    transition: all 300ms ease-in-out;
+}
+
+nav .nav-flex-right button{
+    display: none;
+}
+
+nav .nav-flex-right li:nth-child(1){
+    transform: scaleY(105%);
+    font-weight: 500;
+    opacity: 0.6;
+    transition: all 300ms ease-in-out;
+    /* border: 1px solid green; */
+}
+
+#signup-nav-desktop a{
+    transform: scaleY(105%);
+    font-weight: 500;
+    transition: all 300ms ease-in-out;
+    /* border: 1px solid green; */
+
+}
+
+.logo-flex, .product-flex, .company-flex, .connect-flex{
+    display: flex;
+    flex: 1 1;
+    justify-content: center;
+}
+
+.login-flex, #signup-nav-desktop{
+    display: flex;
+    flex: 0 1;
+    margin-left: 32px;
+
+    justify-content: flex-end;
+}
+
+nav img a{
+    display: inline-block;
+
+}
+
+.desktop-submenu{
+    max-height: 0;
+}
+
+ul a:not(:last-child){
+    margin-bottom: 1.25em;
+}
+
+
+#product-dskt-appear{
+    display: block;
+    visibility: visible;
+    max-height: min-content;
+}
+
+#company-dskt-appear{
+    display: block;
+    visibility: visible;
+    max-height: min-content;
+}
+
+#connect-dskt-appear{
+    display: block;
+    visibility: visible;
+    max-height: min-content;
+}
+
+.submenus-nav{
+    position: absolute;
+
+    position: fixed;
+
+    width: 100%;
+    z-index: 99;
+    top: 0px;
+    background: #0000000c;
+}
+
+
+.menu-hamburger{
+    display: none;
+    visibility:hidden;
+}
+
+#desktop-arrow-icon{
+    display: flex;
+    position: relative;
+    opacity: 1;
+
+    left: 8px;
+    bottom: -8px;
+
+    width: 10px;
+    height: 7px;
+
+    background-image: url(img/icon-arrow-light.svg);
+
+    transition: all 300ms ease-in-out;
+}
+
+.product-flex{
+    visibility: visible;
+    position: relative;
+}
+
+.product-nav-desktop{
+    display: inline-block;
+    visibility: visible;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    transition: all 300ms ease-in-out;
+}
+
+#product-nav-desktop{
+    opacity:1;
+}
+
+#product-nav-desktop .product-nav-desktop{
+    border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+#product-nav-desktop #desktop-arrow-icon{
+    transform: scaleY(-100%);
+}
+
+.company-flex{
+    visibility: visible;
+}
+
+.company-nav-desktop{
+    display: inline-block;
+    visibility: visible;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    transition: all 300ms ease-in-out;
+}
+
+#company-nav-desktop{
+    opacity:1;
+}
+
+#company-nav-desktop .company-nav-desktop{
+    border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+#company-nav-desktop #desktop-arrow-icon{
+    transform: scaleY(-100%);
+}
+
+.connect-flex{
+    visibility: visible;
+}
+
+.connect-nav-desktop{
+    display: inline-block;
+    visibility: visible;
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    transition: all 300ms ease-in-out;
+}
+
+#connect-nav-desktop{
+    opacity:1;
+}
+
+#connect-nav-desktop .connect-nav-desktop{
+    border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+#connect-nav-desktop #desktop-arrow-icon{
+    transform: scaleY(-100%);
+}
+
+.hovered-submenu-a-dskt{
+    font-weight: 100;
+}
+
+.hovered-submenu-a-dskt:hover{
+    font-weight: 500;
+}
+
+.login-nav-desktop{
+    display: flex;
+    visibility: visible;
+    margin-left: auto;
+
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    transition: all 300ms ease-in-out;
+}
+
+#login-nav-desktop{
+    display: flex;
+
+    opacity:1;
+
+}
+
+#login-nav-desktop a{
+    border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+#signup-nav-desktop a{     /*Sign Up Button*/
+    display: flex;
+    visibility: visible;
+
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+
+    transform: scaleY(105%);
+    line-height: 3em;
+    width: 8.5em;
+    min-width: 8.5em;
+    height: 2.875em;
+
+    border-radius: 1.5625em;
+    color: hsl(356, 100%, 66%);
+    background: rgb(255, 255, 255);
+
+    transition: all 300ms ease-in-out;
+}
+
+#signup-nav-desktop{
+    display: inline-block;
+    visibility: visible;
+
+    transition: all 300ms ease-in-out;
+}
+
+#signup-nav-desktop :hover{
+    color: white;
+    background: hsl(355, 100%, 74%);
+
+    transition: all 300ms ease-in-out;
+}
+
+.bg-circles{
+    top: -93.051vw;
+    left: -30.351vw;
+    width: 220%;
+    /* 1252 */
+}
+
+} /* Reminder, this closing brace is from the media query */
+
+@media screen and (max-width:375px){
+
+nav{
+    top: 0;
+
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    width: 100%;
+    min-width: 220px;
+
+    flex: 1 1;
+    justify-content: space-between;
+}
+
+.nav-flex-left{
+    flex: 1 1;
+    justify-content: start;
+}
+
+.nav-flex-right{
+    flex: 1 1;
+    justify-content: flex-end;
+    margin: auto;
+}
+
+}
+
+@media screen and (max-width:240px){
+    nav{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* back to 374pz */
+@media screen and (min-width:0px) and (max-width:404px){
+
+body{
+    font-size: 0.92rem;
+    width: 100%;
+}
+
+header h1{
+    font-size: 2.5rem;
+    margin-top: 150px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.nav-flex-right{
+    flex: 1 1;
+    width: auto;
+}
+
+.designed-future-ilustr, .state-art-headerimg, .laptop-img-mobile{
+    width: 100%;
+}
+
+.hero-buttons{
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.hero-buttons > :first-child{
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+
+.stateh1{
+    font-size: 1.7rem;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-bottom: 2.5em;
+}
+
+.state-art p{
+    margin-bottom: 7.5em;
+}
+
+.phones-art{
+    top:0;
+    width: 100%;
+}
+
+footer{
+    border-top-right-radius: 60px;
+}
+
+.free-open-simple h1{
+    font-size: 1.4rem;
+}
+
+header{
+    border-bottom-left-radius: 60px
+}
+
+.bg-circles{
+    top: -200px;
+    left: -362.5px;
+    width: 1050px;
+}
+
+.designed-future{
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.designed-future > :last-child{
+    margin-bottom: 70vw;
+}
+
+.section-header-container{
+    position: relative;
+}
+
+.phones-art{
+    transform: translateY(-50%);
+}
+
+.state-art{
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+    border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+
+.state-art-bg{
+    top:-160px;
+    width: 160vw;
+}
+
+.state-art-headerimg{
+    bottom: -410px;
+}
+}
+
+
+/* BG Circles custom sizes. */
+
+@media screen and (min-width: 260px) and (max-width:375px){
+    .state-art-headerimg{
+        bottom: -450px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width:1439px){
+
+    nav{
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    header h1{
+        font-size: 3.2rem;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width:470px){
+.bg-circles{
+    top: -80.051vw;
+    left: -140.351vw;
+    width: 420%;
+}
+}
+
+@media screen and (min-width: 471px) and (max-width:745px){
+.bg-circles{
+    top: -65vw;
+    left: -80vw;
+    width: 300%;
+}
+}
+
+@media screen and (min-width: 746px) and (max-width: 1149px){
+.bg-circles{
+    top: -62vw;
+    left: -50vw;
+    width: 200%;
+}
+}
+
+/* BG Circles custom sizes. end */
+
+
+@media screen and (min-width:0px) and (max-width:1149px){
+
+.desktop-submenu-company{
+    display: none;
+    visibility: hidden;
+}
+
+.desktop-submenu-product{
+    display: none;
+    visibility: hidden;
+}
+
+.desktop-submenu-connect{
+    display: none;
+    visibility: hidden;
+}
+
+}
+
+@media screen and (min-width:1280px){
+
+.designed-future{
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    margin-left: 0px;
+    margin-right: 0;
+
+    overflow: hidden;
+}
+
+.designed-future > h1:first-child{
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1 0 100%;
+    font-size: 2.5rem;
+}
+
+.designed-future-ilustr{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -5%;
+
+    flex-basis: 50%;
+    width: 720px;
+
+    align-self: end;
+    margin-top: 0;
+    margin-left: auto;
+
+}
+
+.designedh1{
+    margin-top: 10em;
+}
+
+.designed-future h1:not(:first-child), .designed-future p{
+    flex: 1 1 570px;
+    align-self: start;
+    justify-content: flex-start;
+    text-align: left;
+
+    margin-left: 160px;
+
+    margin-right: 52.5vw;
+    order: 2;
+}
+
+.designed-future > :last-child{
+    margin-bottom: 16.625em;
+}
+
+.introducingh1{
+    margin-top: 58px;
+}
+
+
+.section-header-container{
+    top: 177.6vh;
+    justify-content: start;
+}
+
+.phones-art{
+    margin-top: 2em;
+    margin-left: 7.25vw;
+    width: clamp(80px, 40%, 570px);
+}
+
+.state-art{
+    align-items: start;
+}
+
+.state-art-bg{
+    top: 0;
+    left: -12.7%;
+    transform: translateY(-50%);
+    width: 70%;
+}
+
+.stateh1{
+    flex: 1 1;
+
+    width: auto;
+
+    align-items: start;
+    text-align: left;
+
+
+    margin-top: 7.5em;
+    margin-left: 51.111vw;
+    margin-right: 12.5vw;
+}
+
+.state-art > p{
+    flex: 1 1;
+
+    width: auto;
+
+    text-align: left;
+    margin: 2.25em 12.5vw 7em 51.111vw;
+}
+
+.laptop-img-mobile{
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    left: -18.3%;
+    left: -20.3%;
+    width: clamp(1054px, 70vw, 1378px);
+    margin-top: 0px;
+}
+
+.free-open-simple{
+    position: relative;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+
+    justify-content: center;
+    align-items: flex-end;
+
+
+    overflow: hidden;
+    text-align: center;
+}
+
+.free-open-simple h1{
+    width: 100%;
+    margin-top: 57px;
+
+    flex: 1 1 570px;
+
+    align-self: end;
+    justify-content: flex-end;
+    text-align: left;
+
+    margin-right: 12.5vw;
+    margin-left: 51.111vw;
+}
+
+.free-open-simple p{
+    width: 100%;
+
+    flex: 1 1 570px;
+
+    align-self: end;
+    justify-content: flex-end;
+    text-align: left;
+
+    margin-right: 12.5vw;
+    margin-left: 51.111vw;
+
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    margin-top: 2.5em;
+}
+
+.free-open-simple > :nth-child(2){
+    margin-top: 19.25em
+}
+
+.free-open-simple > :nth-child(3){
+    margin-bottom: 5.625em;
+}
+
+.free-open-simple > p:last-child{
+    margin-bottom: 16.625em;
+}
+
+}
+
+/* this quick media query prevents the state art header from breaking into 2 lines*/
+@media screen and (min-width:1280px) and (max-width:1350px){
+.stateh1{
+    font-size: 2rem;
+    margin-top: 14.375em;
+}
+}
+
+@media screen and (min-width:375px) and (max-width:858px){
+
+.section-header-container{
+    position: relative;
+}
+
+.phones-art{
+    top: 0;
+}
+
+.designed-future{
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+.designed-future > :last-child{
+    margin-bottom: 107px;
+}
+
+.state-art{
+    margin-top: 187.5px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.stateh1{
+    padding-left: 5vw;
+    padding-right: 5vw;
+
+}
+
+.state-art > p{
+    margin-top: 2.375em;
+    margin-bottom: 7.5em;
+}
+
+}
+
+@media screen and (min-width:859px){
+
+.designed-future p{
+    max-width: 46.875em;
+}
+
+.state-art{
+    width: 100%;
+}
+
+.state-art > p{
+    margin-top: 2.375em;
+    max-width: 45.875em;
+}
+
+.free-open-simple p{
+    max-width: 45.875em;
+}
+
+footer > *{
+    width: 100%;
+}
+
+footer li{
+    flex-direction: row;
+    align-items: start;
+
+    flex-wrap: wrap;
+
+    justify-content: space-around;
+
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+footer > li > a:first-child{
+    margin-top: 4.375em;
+}
+
+.connect-footer > li > :last-child{
+    margin-bottom: 0em;
+}
+
+footer li > ul{
+    margin-top: 4.375em;
+    line-height: 1em;
+}
+
+footer li > ul > li{
+    flex-direction: column;
+}
+
+footer li ul a{
+    font-family: var(--font-overpass);
+    font-size: 1rem;
+    font-weight: 500;
+
+    line-height: 1em;
+    opacity: 0.8;
+}
+
+footer li ul li a:not(:last-child){
+    margin-bottom: 1.125em;
+}
+
+.product-footer{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.product-footer li {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.product-footer li a{
+    align-self: start;
+}
+
+.connect-footer li a{
+    align-self: start;
+}
+
+.company-footer li a{
+    align-self: start;
+}
+
+.product-footer li h1{
+    align-self: start;
+}
+
+.connect-footer li h1{
+    align-self: start;
+}
+
+.company-footer li h1{
+    align-self: start;
+}
+
+.product-footer li a:last-child{
+    margin-bottom: 5em;
+}
+}
+
+@media screen and (min-width: 859px) and (max-width: 1279px){
+
+.section-header-container{
+    position: relative;
+    margin-top: 187.5px;
+}
+
+.phones-art{
+    top: 0;
+    transform: translateY(-50%);
+}
+
+.state-art p {
+    margin-bottom: 7.5em;
+}
+}
